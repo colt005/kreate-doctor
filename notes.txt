@@ -1,0 +1,6 @@
+--Get All doctors - GET v1/doctors
+--Get all patients - GET v1/patients&doctor_id=1  GET v1/doctor/1/patients
+--Edit patient - PUT v1/patient/id
+Get Patient - GET v1/patient/id
+delete patient - DELETE v1/patient/id
+Add patient - POST v1/patient

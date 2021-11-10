@@ -1,0 +1,102 @@
+--Get All Doctors--
+GET /api/v1/doctors HTTP/1.1
+X-Api-Key: tokenTest
+Host: localhost:8080
+
+curl --request GET \
+  --url http://localhost:8080/api/v1/doctors \
+  --header 'X-Api-Key: tokenTest'
+  
+
+
+--Get Patient By Id--
+GET /api/v1/patient/<patient_id> HTTP/1.1
+X-Api-Key: tokenTest
+Host: localhost:8080
+
+curl --request GET \
+  --url http://localhost:8080/api/v1/patient/1 \
+  --header 'X-Api-Key: tokenTest'
+
+
+
+
+--Get Patients By doctor--
+GET /api/v1/doctor/<doctor_id>/patients HTTP/1.1
+X-Api-Key: tokenTest
+Host: localhost:8080
+
+curl --request GET \
+  --url http://localhost:8080/api/v1/doctor/1/patients \
+  --header 'X-Api-Key: tokenTest'
+
+
+
+
+--Edit Patient--
+PUT /api/v1/patient/<patient_id> HTTP/1.1
+X-Api-Key: tokenTest
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 180
+{
+    "id": <patient id>,
+    "name": <patient name>,
+    "age": <age>,
+    "phone": <phone>,
+    "doctor_id": <doctor_id>,
+    "disease": <diesease>
+}
+
+curl --request PUT \
+  --url http://localhost:8080/api/v1/patient/1 \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: tokenTest' \
+  --data '{
+    "id": 1,
+    "name": "Edited Name",
+    "age": 26,
+    "phone": 944252114,
+    "doctor_id": 2,
+    "disease": "Heart issue"
+}'
+
+
+
+
+--Add Patient--
+POST /api/v1/doctor/<doctor_id>/patient HTTP/1.1
+X-Api-Key: tokenTest
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 100
+
+{
+    "name": <patient name>,
+    "age": <age>,
+    "phone": <phone>,
+    "disease": <diesease>
+}
+
+curl --request POST \
+  --url http://localhost:8080/api/v1/doctor/1/patient \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: tokenTest' \
+  --data '{
+    "name": "Rama2244",
+    "age": 23,
+    "phone": 94425211,
+    "disease": "Heart issueasdasd"
+}'
+
+
+
+
+--Delete Patient--
+DELETE /api/v1/patient/<patient_id> HTTP/1.1
+X-Api-Key: tokenTest
+Host: localhost:8080
+
+curl --request DELETE \
+  --url http://localhost:8080/api/v1/patient/2 \
+  --header 'X-Api-Key: tokenTest'
